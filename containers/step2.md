@@ -16,6 +16,7 @@ Dockerizing a node application
 }
 EOF```{{execute}}
 
+
 ```cat <<EOF > server.js
 'use strict';
 

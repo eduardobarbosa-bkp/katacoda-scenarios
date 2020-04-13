@@ -18,7 +18,7 @@ Pulls an image or a repository from your local registry or Docker Hub
 
 Displays the history of an image
 
-`docker history nginx`{{execute}}
+`docker history busybox`{{execute}}
 
 Runs a command in a container
 
