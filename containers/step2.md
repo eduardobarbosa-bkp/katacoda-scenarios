@@ -1,6 +1,7 @@
 Dockerizing a node application
 
-```cat <<EOF > package.json
+```
+cat <<EOF > package.json
 {
   "name": "docker_web_app",
   "version": "1.0.0",
@@ -17,8 +18,8 @@ Dockerizing a node application
 EOF
 ```{{execute}}
 
-
-```cat <<EOF > server.js
+```
+cat <<EOF > server.js
 'use strict';
 
 const express = require('express');
@@ -38,8 +39,8 @@ console.log(`Running on http://${HOST}:${PORT}`);
 EOF
 ```{{execute}}
 
-
-```cat <<EOF > Dockerfile
+```
+cat <<EOF > Dockerfile
 FROM node:alpine
 
 # Create app directory
