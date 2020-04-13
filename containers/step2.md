@@ -1,5 +1,6 @@
 Dockerizing a node application
 
+
 ```
 cat <<EOF > package.json
 {
@@ -18,6 +19,7 @@ cat <<EOF > package.json
 EOF
 ```{{execute}}
 
+
 ```
 cat <<EOF > server.js
 'use strict';
@@ -31,13 +33,14 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Learn from a Watopia Containers');
+  res.send('Learn from a Watopia Containers\n');
 });
 
 app.listen(PORT, HOST);
 console.log('Running on http://${HOST}:${PORT}');
 EOF
 ```{{execute}}
+
 
 ```
 cat <<EOF > Dockerfile
@@ -63,6 +66,7 @@ CMD [ "node", "server.js" ]
 EOF
 ```{{execute}}
 
+`clear`{{execute}}
 
 Build a image using Dockerfile
 
@@ -70,7 +74,7 @@ Build a image using Dockerfile
 
 `docker run -it -p 8081:8080 -d zwift-node`{{execute}}
 
-`curl localhost:8081`{{execute}}
+`curl -i localhost:8081`{{execute}}
 
 
 References
