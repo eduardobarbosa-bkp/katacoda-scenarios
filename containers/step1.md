@@ -6,7 +6,6 @@ Shows system-wide information
 
 `docker info`{{execute}}
 
-`clear`{{execute}}
 
 Searches the Docker Hub for images
 
@@ -34,17 +33,14 @@ Runs a command in a container but set a flag to auto remove after execution
 
 `docker ps -a`{{execute}}
 
-`clear`{{execute}}
 
 Runs a command in a nginx container setting name and bind host and container port
 
 `docker run -it --name zwift-ngx -p 8080:80 -d nginx`{{execute}}
 
-In a new terminal run
+`curl -i localhost:8080`{{execute T2}}
 
-`curl localhost:8080`{{execute}}
-
-`docker stats`{{execute}}
+`docker stats`{{execute T2}}
 
 
 Finds system-level information about docker containers and images

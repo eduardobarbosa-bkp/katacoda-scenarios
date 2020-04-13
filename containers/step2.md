@@ -1,5 +1,10 @@
-Dockerizing a node application
+Dockerizing application
 
+Node 
+
+`mkdir ~/node-app`{{execute}}
+
+`cd ~/node-app`{{execute}}
 
 ```
 cat <<EOF > package.json
@@ -33,7 +38,7 @@ const HOST = '0.0.0.0';
 // App
 const app = express();
 app.get('/', (req, res) => {
-  res.send('Learn from a Watopia Containers\n');
+  res.send('Learn from a Watopia Containers Node\n');
 });
 
 app.listen(PORT, HOST);
@@ -66,7 +71,6 @@ CMD [ "node", "server.js" ]
 EOF
 ```{{execute}}
 
-`clear`{{execute}}
 
 Build a image using Dockerfile
 
@@ -77,7 +81,45 @@ Build a image using Dockerfile
 `curl -i localhost:8081`{{execute}}
 
 
-References
+Golang
 
-https://docs.docker.com/engine/reference/commandline/docker/
-https://nodejs.org/fr/docs/guides/nodejs-docker-webapp/
+`mkdir ~/golang-app`{{execute}}
+
+`cd ~/golang-app`{{execute}}
+
+
+```
+cat <<EOF > main.go
+package main
+
+import (
+	"fmt"
+)
+
+func main() {
+	fmt.Println("Learn from a Watopia Containers Golang")
+}
+EOF
+```{{execute}}
+
+
+```
+cat <<EOF > Dockerfile
+FROM golang:alpine
+
+WORKDIR /go/src/app
+COPY . .
+
+RUN go get -d -v ./...
+RUN go install -v ./...
+
+CMD ["app"]
+EOF
+```{{execute}}
+
+
+Build a image using Dockerfile
+
+`docker build -t zwift-golang .`{{execute}}
+
+`docker run zwift-golang`{{execute}}
