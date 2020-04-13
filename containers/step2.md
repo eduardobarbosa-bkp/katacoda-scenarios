@@ -14,7 +14,8 @@ Dockerizing a node application
     "express": "^4.16.1"
   }
 }
-EOF```{{execute}}
+EOF
+```{{execute}}
 
 
 ```cat <<EOF > server.js
@@ -34,7 +35,8 @@ app.get('/', (req, res) => {
 
 app.listen(PORT, HOST);
 console.log(`Running on http://${HOST}:${PORT}`);
-EOF```{{execute}}
+EOF
+```{{execute}}
 
 
 ```cat <<EOF > Dockerfile
@@ -57,7 +59,8 @@ COPY . .
 
 EXPOSE 8080
 CMD [ "node", "server.js" ]
-EOF```{{execute}}
+EOF
+```{{execute}}
 
 
 Build a image using Dockerfile
