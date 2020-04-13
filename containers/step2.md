@@ -35,7 +35,7 @@ app.get('/', (req, res) => {
 });
 
 app.listen(PORT, HOST);
-console.log(`Running on http://${HOST}:${PORT}`);
+console.log('Running on http://${HOST}:${PORT}');
 EOF
 ```{{execute}}
 
@@ -66,8 +66,14 @@ EOF
 
 Build a image using Dockerfile
 
-`docker build -t zwift-node .'`{{execute}}
+`docker build -t zwift-node .`{{execute}}
 
-`docker run -it -p 8081:800 -d zwift-node`{{execute}}
+`docker run -it -p 8081:8080 -d zwift-node`{{execute}}
 
 `curl localhost:8081`{{execute}}
+
+
+References
+
+https://docs.docker.com/engine/reference/commandline/docker/
+https://nodejs.org/fr/docs/guides/nodejs-docker-webapp/
